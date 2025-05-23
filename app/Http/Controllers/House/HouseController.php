@@ -39,6 +39,7 @@ class HouseController extends Controller
             'bte' => "required|string|min:1",
         ]);
 
+
         $request->validate([
             'files' => 'required|array',
             'files.*' => 'array',
@@ -52,6 +53,7 @@ class HouseController extends Controller
             'surface' => $validated['surface'],
             'description' => $validated['description']
         ]);
+
 
         Place::create([
             'bte' => $validated['bte'],
@@ -72,6 +74,7 @@ class HouseController extends Controller
                 ]);
             }
         }
+
         return redirect()->route('house.index');
     }
 

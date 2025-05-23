@@ -26,7 +26,9 @@ Route::middleware([
 
 
 Route::get('/house', [HouseController::class, 'index'])->name('house.index');
-Route::get('/house/create', [HouseController::class, 'create'])->name('house.create');
+Route::get('/house/create', [HouseController::class, 'create'])
+    ->middleware('auth')
+    ->name('house.create');
 Route::post('/house', [HouseController::class, 'store'])->name('house.store');
 Route::get('/house/{id}', [HouseController::class, 'show'])->name('house.show');
 

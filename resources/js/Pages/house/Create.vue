@@ -28,7 +28,7 @@ function submit(event) {
     form.country = country.value;
     form.street = street.value;
     form.code = code.value;
-    form.bte = bte.value
+    form.bte = bte.value;
     form.post("/house")
 }
 
@@ -48,54 +48,65 @@ function handleFiles(event) {
 
     <div class="container d-flex justify-content-center mt-5">
         <form>
-            <div class="mb-3">
-                <input type="file" multiple @change="handleFiles" />
-            </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="title">Title</label>
                     <input v-model="title" type="text" class="form-control" id="title" placeholder="Title"/>
+                    <div class="text-danger" v-if="form.errors.title">{{ form.errors.title }}</div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="description">Description</label>
                     <textarea v-model="description" type="text" class="form-control" id="description"/>
+                    <div class="text-danger"  v-if="form.errors.description">{{ form.errors.description }}</div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="rooms">Rooms</label>
                     <input v-model="rooms" type="number" class="form-control" id="rooms" >
+                    <div class="text-danger"  v-if="form.errors.rooms">{{ form.errors.rooms }}</div>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="surface">Surface</label>
                     <input v-model="surface" type="number" class="form-control" id="surface">
+                    <div class="text-danger" v-if="form.errors.surface">{{ form.errors.surface }}</div>
+
                 </div>
                 <div class="form-group col-md-4">
                     <label for="price">Price</label>
                     <input v-model="price" type="number" class="form-control" id="price">
+                    <div class="text-danger"  v-if="form.errors.price">{{ form.errors.price }}</div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="city">City</label>
                     <input v-model="city"  type="text" class="form-control" id="city">
+                    <div class="text-danger"  v-if="form.errors.price">{{ form.errors.price }}</div>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="country">Country</label>
-                    <input v-model="country"  type="text" class="form-control" id="country">
+                    <input v-model="country" maxlength="2"  type="text" class="form-control" id="country">
+                    <div class="text-danger"  v-if="form.errors.country">{{ form.errors.country }}</div>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="street">Street</label>
                     <input v-model="street"  type="text" class="form-control" id="street">
+                    <div class="text-danger"  v-if="form.errors.street">{{ form.errors.street }}</div>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="code">Code</label>
                     <input v-model="code"  type="text" class="form-control" id="code">
+                    <div class="text-danger"  v-if="form.errors.code">{{ form.errors.code }}</div>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="bte">Boite</label>
                     <input v-model="bte" type="text" class="form-control" id="bte">
+                    <div class="text-danger"  v-if="form.errors.bte">{{ form.errors.bte }}</div>
                 </div>
+            </div>
+            <div class="mb-3">
+                <input type="file" multiple @change="handleFiles" />
             </div>
             <button @click="submit" type="submit" class="btn btn-dark">Submit</button>
         </form>
