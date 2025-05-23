@@ -26,3 +26,4 @@ Route::middleware([
 
 
 Route::get('/house', [HouseController::class, 'index'])->name('house.index');
+Route::get('/house/{id}', [HouseController::class, 'show'])->name('house.show');
