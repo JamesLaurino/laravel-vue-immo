@@ -14,7 +14,8 @@ class Place extends Model
         "bte",
         "city",
         "code",
-        "country"
+        "country",
+        "house_id"
     ];
 
     public function house() {
