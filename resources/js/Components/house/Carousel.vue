@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="carousel-container mt-5">
+    <div class="carousel-container">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item"

@@ -1,6 +1,10 @@
 <script setup>
-
 import {Link} from "@inertiajs/vue3";
+
+const props = defineProps({
+    user:Object
+})
+
 </script>
 
 <template>
@@ -22,15 +26,18 @@ import {Link} from "@inertiajs/vue3";
                         Actions
                     </a>
                     <div class="dropdown-menu">
-                        <Link class="dropdown-item" :href="route('house.create')"> Create </Link>
+                        <Link v-if="user != null" class="dropdown-item" :href="route('house.create')"> Create </Link>
                         <a class="dropdown-item" href="#">Update</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Delete</a>
                     </div>
                 </li>
             </ul>
-            <div class="my-2 my-lg-0 mr-3">
-                <Link class="text-white" :href="route('house.index')"> Login </Link>
+            <div v-if="user == null" class="my-2 my-lg-0 mr-3">
+                <Link class="text-white" :href="route('login')"> Login </Link>
+            </div>
+            <div v-else class="my-2 my-lg-0 mr-3">
+                <Link class="text-white" :href="route('house.index')"> Déconnection </Link>
             </div>
         </div>
     </nav>

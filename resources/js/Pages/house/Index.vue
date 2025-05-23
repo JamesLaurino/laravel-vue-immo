@@ -3,12 +3,15 @@
  import HouseCard from "@/Components/HouseCard.vue";
 
  const props = defineProps({
-     houses: Array
+     houses: Array,
+     user:Object
  })
+
+
 </script>
 
 <template>
-    <NavigationBar/>
+    <NavigationBar :user="user"/>
     <div class="d-flex justify-content-center mt-3 mb-1">
         <h1 class="h3"> James Immo</h1>
     </div>
